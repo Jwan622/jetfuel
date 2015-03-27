@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration for Figaro Gem
+/config/application.yml
