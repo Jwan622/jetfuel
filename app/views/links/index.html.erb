@@ -1,0 +1,39 @@
+<div class="row">
+  <h1 class="main-heading"> Welcome To Bit.ly...The Remix </h1>
+  <h3 class="heading"> Shorten Your Link </h3>
+
+  <div class="col-sm-offset-2 col-sm-7">
+    <%= form_for :link, url: links_path do |f| %>
+      <%= f.text_field :orig_url, class:"form-control input-lg link-input", placeholder: "Enter Your Link that is too long" %>
+      <%= f.submit "Get Shortened Url", class: "submit-button" %>
+    <% end %>
+  </div>
+</div>
+
+
+  <div class="row">
+    <%= form_for :link, url: links_path, method: :get do |f| %>
+      <%= f.label :most_recent %>
+      <%= f.check_box :most_recent %>
+
+      <%= f.label :most_views %>
+      <%= f.check_box :most_views, { checked: true } %>
+
+      <%= f.submit "Filter" %>
+    <% end %>
+  </div>
+
+<div class="row">
+  <div class="all-links">
+    <% @links.each do |link| %>
+      <li>
+        <strong> Title: </strong> <span class="lead"><%= link.title %></span>
+        created_at: <%= link.created_at %> <br>
+        <strong>Original Url:</strong> <%= truncate(link.orig_url, length: 58, omission: "...(this link is too long)") %><br>
+        <strong>Shortened Url:</strong> <%= link_to link.short_url, link.orig_url, class: "short-link" %>
+        <strong>Visits:</strong> <%= link.clicks %>
+      </li>
+      </br>
+    <% end %>
+  </div>
+</div>
