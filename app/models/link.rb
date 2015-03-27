@@ -15,7 +15,7 @@ class Link < ActiveRecord::Base
   end
 
   def set_defaults
-    self.clicks = 0 if self.clicks.blank?
-    self.title = orig_url.split(".com")[1] + "Link" if self.title.blank?
+    self.clicks = 0 if clicks.blank?
+    self.title = orig_url.split(".com")[1] + "Link" if title.blank?
   end
 end
