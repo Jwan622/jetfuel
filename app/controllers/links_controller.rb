@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    link = Link.create(link_params)
+    Link.create(link_params)
     redirect_to root_path, flash: { notice: "You have a new shortened link!" }
   end
 
@@ -28,5 +28,4 @@ class LinksController < ApplicationController
   def sort_method
     ("sort_by_" + sort_params.key("1")).to_sym
   end
-
 end
