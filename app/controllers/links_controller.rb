@@ -10,8 +10,10 @@ class LinksController < ApplicationController
   end
 
   def show
-    require 'pry' ; binding.pry
     @link = Link.find(params[:id])
+    @link.clicks += 1
+    @link.save
+    redirect_to @link.orig_url
   end
 
   private
