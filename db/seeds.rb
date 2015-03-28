@@ -9,7 +9,7 @@
 
 10.times do |n|
   Link.create!(
-    orig_url: "https://www.google.com/search?q=google+image+balut&espv=2&biw=1280&bih=678&source=lnms&tbm=isch&sa=X&ei=wXcUVfigDoTToATmsIHwDA&ved=0CAYQ_AUoAQ#tbm=isch&q=balut&imgdii=_&imgrc=aBnVgAVJGn6jrM%253A%3BXZtBCFjfPu97oM%3Bhttp%253A%252F%252Fgenealogyreligion.net%252Fwp-content%252Fuploads%252F2011%252F06%252Fbalut25.jpg%3Bhttp%253A%252F%252Fgenealogyreligion.net%252Ftag%252Fbalut%3B450%3B338",
+    orig_url: "https://www.google.com/search?tbm=isch&q=balut&ei=o9wWVeimI5DqoATYlIKAAg#imgdii=_&imgrc=qnYT21R-r5VDRM%253A%3BIbuD8fXhkqTEDM%3Bhttp%253A%252F%252Fwww.bizarrefood.com%252Fblog%252Fwp-content%252Fuploads%252F2012%252F08%252Fbalut.jpg%3Bhttp%253A%252F%252Fwww.bizarrefood.com%252Fblog%252Ffertilized-duck-embryo-balut%252F%3B295%3B300",
     clicks: 50 + (n + 5),
     title: "Google link",
     created_at: DateTime.parse("2015-03-30 18:44:#{59-n}")

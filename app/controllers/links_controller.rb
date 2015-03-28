@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   def index
     @links = Link.send(sort_method)
+    flash[:notice] = "You sorted by #{sort_params.key("1")}" if sort_params.key("1")
   end
 
   def create
@@ -9,6 +10,10 @@ class LinksController < ApplicationController
   end
 
   def show
+    @link = Link.find(params[:id])
+    @link.clicks += 1
+    @link.save
+    redirect_to @link.orig_url
   end
 
   private
@@ -21,11 +26,15 @@ class LinksController < ApplicationController
     if params[:link]
       params.require(:link).permit(:most_recent, :most_views)
     else
-      { "most_recent" => "0", "most_views" => "1" }
+      default_to_sort_by_popularity
     end
   end
 
   def sort_method
     ("sort_by_" + sort_params.key("1")).to_sym
+  end
+
+  def default_to_sort_by_popularity
+    { "most_recent" => "0", "most_views" => "1" }
   end
 end

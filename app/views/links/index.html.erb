@@ -4,7 +4,7 @@
 
   <div class="col-sm-offset-2 col-sm-7">
     <%= form_for :link, url: links_path do |f| %>
-      <%= f.text_field :orig_url, class:"form-control input-lg link-input", placeholder: "Enter Your Link that is too long" %>
+      <%= f.text_field :orig_url, class:"form-control input-lg link-input", placeholder: "Enter Your Link in this format: www.google.com" %>
       <%= f.submit "Get Shortened Url", class: "submit-button" %>
     <% end %>
   </div>
@@ -17,7 +17,7 @@
       <%= f.check_box :most_recent %>
 
       <%= f.label :most_views %>
-      <%= f.check_box :most_views, { checked: true } %>
+      <%= f.check_box :most_views %>
 
       <%= f.submit "Filter" %>
     <% end %>
@@ -28,9 +28,9 @@
     <% @links.each do |link| %>
       <li>
         <strong> Title: </strong> <span class="lead"><%= link.title %></span>
-        created_at: <%= link.created_at %> <br>
-        <strong>Original Url:</strong> <%= truncate(link.orig_url, length: 58, omission: "...(this link is too long)") %><br>
-        <strong>Shortened Url:</strong> <%= link_to link.short_url, link.orig_url, class: "short-link" %>
+        <em>created_at:</em> <%= link.created_at %> <br>
+        <strong>Original Url:</strong> <%= truncate(link.orig_url, length: 130, omission: "...(Hi Steve!!! This link is too long...so I truncated it with this extra long description.)") %><br>
+        <strong>Shortened Url:</strong> <%= link_to link.short_url, link_path(link), class: "short-link" %>
         <strong>Visits:</strong> <%= link.clicks %>
       </li>
       </br>
