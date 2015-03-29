@@ -12,12 +12,12 @@
 
 
   <div class="row">
-    <%= form_for :link, url: links_path, method: :get do |f| %>
+    <%= form_for :link, url: links_path, method: :get, html: { class: "checkbox-form" } do |f| %>
       <%= f.label :most_recent %>
-      <%= f.check_box :most_recent %>
+      <%= f.check_box :most_recent, data: { attribute: 'created_at' } %>
 
       <%= f.label :most_views %>
-      <%= f.check_box :most_views %>
+      <%= f.check_box :most_views, data: { attribute: 'clicks' } %>
 
       <%= f.submit "Filter" %>
     <% end %>

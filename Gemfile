@@ -24,6 +24,7 @@ gem 'faraday',                  '< 0.9.0'
 gem 'rest-client',              '~> 1.7.3'
 gem 'bootstrap-datepicker-rails'
 gem 'figaro'
+gem 'ejs'
 
 group :production do
   gem 'rails_12factor'

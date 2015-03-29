@@ -1,7 +1,11 @@
 class LinksController < ApplicationController
+
   def index
-    @links = Link.send(sort_method)
-    flash[:notice] = "You sorted by #{sort_params.key("1")}" if sort_params.key("1")
+    @links = Link.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @links }
+    end
   end
 
   def create
