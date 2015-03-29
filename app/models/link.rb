@@ -16,7 +16,7 @@ class Link < ActiveRecord::Base
 
   def set_defaults
     self.clicks = 0 if clicks.blank?
-    if title.blank? && orig_url =~ /.com/  #this regex needs work.
+    if title.blank? && orig_url =~ /.com/ # this regex needs work.
       self.title = orig_url.split(".")[1] + " Link"
     else
       self.title = orig_url
