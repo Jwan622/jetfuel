@@ -10,18 +10,18 @@
   </div>
 </div>
 
+<div class="row">
+  <strong> <em>Sort by (using jQuery and JSON):</em> </strong>
+  <%= form_for :link, url: links_path, method: :get, html: { class: "checkbox-form" } do |f| %>
+    <%= f.label :most_recent %>
+    <%= f.radio_button :link, :most_recent, data: { attribute: 'created_at' } %>
 
-  <div class="row">
-    <%= form_for :link, url: links_path, method: :get, html: { class: "checkbox-form" } do |f| %>
-      <%= f.label :most_recent %>
-      <%= f.check_box :most_recent, data: { attribute: 'created_at' } %>
+    <%= f.label :most_views %>
+    <%= f.radio_button :link, "most views", { checked: true, data: { attribute: 'clicks' } } %>
+  <% end %>
+</div>
 
-      <%= f.label :most_views %>
-      <%= f.check_box :most_views, { checked: true, data: { attribute: 'clicks' } } %>
-
-      <%= f.submit "Filter" %>
-    <% end %>
-  </div>
+<%= button_to "Delete", link_path(1), method: :delete %>
 
 <div class="row">
   <div class="all-links">
