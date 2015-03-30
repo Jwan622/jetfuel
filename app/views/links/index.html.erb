@@ -1,10 +1,10 @@
 <div class="row">
   <h1 class="main-heading"> Welcome To Bit.ly...The Remix </h1>
-  <h3 class="heading"> Shorten Your Link </h3>
+    <h3 class="heading"> Shorten Your Link </h3>
 
   <div class="col-sm-offset-2 col-sm-7">
     <%= form_for :link, url: links_path do |f| %>
-      <%= f.text_field :orig_url, class:"form-control input-lg link-input", placeholder: "Enter Your Link in this format: www.google.com" %>
+      <%= f.text_field :orig_url, class:"form-control input-lg link-input", placeholder: "Enter Your Link in this format: https://www.kottke.org" %>
       <%= f.submit "Get Shortened Url", class: "submit-button" %>
     <% end %>
   </div>
