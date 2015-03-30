@@ -26,9 +26,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'figaro'
 gem 'ejs'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-lodash'
-end
+gem 'rails-assets-lodash', source: 'https://rails-assets.org'
 
 group :production do
   gem 'rails_12factor'
