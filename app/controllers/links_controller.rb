@@ -10,8 +10,11 @@ class LinksController < ApplicationController
 
   def create
     if valid_link_params?
-      Link.create(link_params)
-      redirect_to root_path, flash: { notice: "You have a new shortened link!" }
+      link = Link.new(link_params)
+      if link.save
+        TitleWorker.perform_async(link.id)
+        redirect_to root_path, flash: { notice: "You have a new shortened link!" }
+      end
     else
       redirect_to root_path, flash: { error: "Your url is in the wrong format." }
     end

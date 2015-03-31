@@ -8,6 +8,5 @@ class Link < ActiveRecord::Base
 
   def set_defaults
     self.clicks = 0 if clicks.blank?
-    self.title = TitleParser.new(orig_url).obtain_title
   end
 end

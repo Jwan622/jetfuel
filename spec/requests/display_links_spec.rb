@@ -4,7 +4,7 @@ RSpec.describe "DisplayLinks", :type => :request do
   describe "GET links_path" do
     # These tests no longer work when I implmented javascript since I don't
     # think I have the selenium driver working to view objects when the
-    # javasript code renders objects to the dom. I am keeping them even though 
+    # javasript code renders objects to the dom. I am keeping them even though
     # I know it's bad practice to have reference to rspec tests in the future.
     # This is my first proejct with RSpec.
 
