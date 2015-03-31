@@ -2,7 +2,7 @@ class TitleParser
   attr_reader :connection
 
   def initialize(orig_url)
-    @connection = Faraday.new(orig_url)
+    @connection = Faraday.new(url: orig_url)
   end
 
   def obtain_title

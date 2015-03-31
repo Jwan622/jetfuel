@@ -25,6 +25,7 @@ gem 'rest-client',              '~> 1.7.3'
 gem 'bootstrap-datepicker-rails'
 gem 'figaro'
 gem 'ejs'
+gem 'sidekiq'
 
 gem 'rails-assets-lodash', source: 'https://rails-assets.org'
 

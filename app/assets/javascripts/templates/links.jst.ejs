@@ -1,11 +1,11 @@
 <% sorted.forEach(function(link) { %>
   <li>
-    <strong> Title: </strong> <span class="lead"><%= link.title %></span><br>
+    <strong> Title (obtained through Faraday and Nokogiri): </strong> <span class="lead"><%= link.title %></span><br>
     <em>created_at:</em> <%= link.created_at %> <br>
     <strong>Original Url:</strong>
     <%= _.trunc(link.orig_url, {
-      'length': 136,
-      'omission': "...(Hi Steve!!! This link is too long...with EJS since truncate doesn't work in JavaScript land.)"
+      'length': 144,
+      'omission': "...(This link is too long...had to truncate with EJS+loDash since truncate helper doesn't work in JavaScript land.)"
     }) %>
     <br>
     <strong>Shortened Url:</strong> <a class="short-link" href="/links/<%= link.id %>"> <%= link.short_url %> </a>
@@ -13,4 +13,3 @@
   </li>
   </br>
 <% }); %>
-w
