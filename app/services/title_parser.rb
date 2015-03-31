@@ -6,13 +6,10 @@ class TitleParser
   end
 
   def obtain_title
-    response = parse(connection.get)
-    require 'pry' ; binding.pry
-  end
-
-  private
-
-  def parse(response)
-    JSON.parse(response.body)
+    response = connection.get
+    html_doc = Nokogiri::HTML(response.body)
+    html_doc.css("title").text
   end
 end
+
+puts "TitleParser was eager loaded"

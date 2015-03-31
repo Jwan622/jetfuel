@@ -8,10 +8,8 @@ class Link < ActiveRecord::Base
 
   def set_defaults
     self.clicks = 0 if clicks.blank?
-    if title.blank? && orig_url =~ /.com/ # this regex needs work.
-      self.title = TitleParser.new(orig_url).obtain_title
-    else
-      self.title = orig_url
-    end
+    self.title = TitleParser.new(orig_url).obtain_title
   end
 end
+
+puts "link was eager loaded"

@@ -15,7 +15,6 @@ class LinksController < ApplicationController
     else
       redirect_to root_path, flash: { error: "Your url is in the wrong format."}
     end
-
   end
 
   def show
@@ -29,7 +28,7 @@ class LinksController < ApplicationController
 
   def valid_link_params?
     url = URI.parse(params[:link][:orig_url])
-    %w( http https ).include?(url.scheme) && %w( .com .org .gov .io ).include?(url.path[-4..-1])
+    %w( http https ).include?(url.scheme) && %w( .com .org .gov .io ).include?(url.host[-4..-1])
   rescue URI::BadURIError
     false
   rescue URI::InvalidURIError
