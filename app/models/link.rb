@@ -11,5 +11,3 @@ class Link < ActiveRecord::Base
     self.title = TitleParser.new(orig_url).obtain_title
   end
 end
-
-puts "link was eager loaded"

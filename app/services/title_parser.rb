@@ -11,5 +11,3 @@ class TitleParser
     html_doc.css("title").text
   end
 end
-
-puts "TitleParser was eager loaded"
