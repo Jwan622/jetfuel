@@ -26,9 +26,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'figaro'
 gem 'ejs'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-lodash'
-end
+gem 'rails-assets-lodash', source: 'https://rails-assets.org'
 
 group :production do
   gem 'rails_12factor'
@@ -48,4 +46,5 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'awesome_print',          require: "ap"
   gem 'rspec-rails',            '~> 3.0'
+  gem 'nokogiri',               '~> 1.6.6.2'
 end
