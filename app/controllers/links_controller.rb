@@ -13,7 +13,7 @@ class LinksController < ApplicationController
       Link.create(link_params)
       redirect_to root_path, flash: { notice: "You have a new shortened link!" }
     else
-      redirect_to root_path, flash: { error: "Your url is in the wrong format."}
+      redirect_to root_path, flash: { error: "Your url is in the wrong format." }
     end
   end
 
@@ -28,7 +28,8 @@ class LinksController < ApplicationController
 
   def valid_link_params?
     url = URI.parse(params[:link][:orig_url])
-    %w( http https ).include?(url.scheme) && %w( .com .org .gov .io ).include?(url.host[-4..-1])
+    %w( http https ).include?(url.scheme) &&
+    %w( .com .org .gov .io ).include?(url.host[-4..-1])
   rescue URI::BadURIError
     false
   rescue URI::InvalidURIError
