@@ -7,7 +7,12 @@ RSpec.describe "Links endpoint", type: :request do
       link2 = create(:link)
       get api_v1_links_path(format: :json)
 
-      response = JSON.parse(response.body)
+      links = JSON.parse(response.body)
+
+      expect(response.status).to eq(200)
+      expect(links.first["short_url"]).to match(/bit.ly-remix/)
+      expect(links.first["orig_url"]).to match(/www.google/)
+      expect(links.first["title"]).to eql("Lutefisk Hell")
     end
   end
 end
