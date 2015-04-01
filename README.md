@@ -11,6 +11,8 @@ cd jetfuel (enter the directory)
 bundle install
 
 rails s # to run the server
+redis-server in another console window to run redis
+bundle exec sidekiq to run sidekiq (for background workers)
 ```
 To run the tests:
 
